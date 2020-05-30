@@ -96,19 +96,34 @@ const movies = {
     name: 'Get Out',
   },
 };
+class App extends Component{
+render(){
+    return(
+        <div className="App">
+            <header className="App-header">
+            <img src={logo} className="App-logo" alt="logo" />
+            <h1 className="App-title">ReactND - Coding Practice</h1>
+          </header>
+          <ul>
+            <h2>Favorite Movies</h2>
+  {profiles.map((profile)=>{
+    const userName = users[profile.userID].name;
+const favMovieName = movies[profile.favoriteMovieID].name;
+  return(
+      <li key={profile.id}>
+<p>{`${userName}'s favorite movie is "${favMovieName}."`}</p>
+      </li>
+  );
 
-class App extends Component {
-  render() {
-    return (
-      <div>
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">ReactND - Coding Practice</h1>
-        </header>
-        <h2>Favorite Movies</h2>
-      </div>
-    );
-  }
+ } )
+}
+</ul>
+</div>
+    )
+}
 }
 
 export default App;
+
+
+
